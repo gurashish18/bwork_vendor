@@ -7,10 +7,10 @@ import { useNavigation } from '@react-navigation/native';
 const OnboardScreen = () => {
     const navigation = useNavigation()
     const onDone = () => {
-    //   navigation.navigate("Login")
+      navigation.navigate("OTPlogin")
     };
     const onSkip = () => {
-    //   navigation.navigate("Login")
+      navigation.navigate("OTPlogin")
     };
     const RenderItem = ({item}) => {
         return (
