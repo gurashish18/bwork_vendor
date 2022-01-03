@@ -1,11 +1,10 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import Navigation from './nav/Navigation'
 
 const App = () => {
   return (
-    <View>
-      <Text>Hellp</Text>
-    </View>
+    <Navigation />
   )
 }
 
