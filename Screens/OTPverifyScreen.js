@@ -59,7 +59,7 @@ const OTPverifyScreen = ({ route: { params: { phoneNumber } }}) => {
                 codeInputHighlightStyle={{borderColor: '#3284FF'}}
                 onCodeFilled = {code => {} }
             />
-            <Button onPress={() => navigation.navigate("AppNav")} buttontext="Verify"/>
+            <Button onPress={() => navigation.navigate("WorkerInfo")} buttontext="Verify"/>
         </View>
     )
 }
