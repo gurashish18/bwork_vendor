@@ -1,32 +1,35 @@
 import React, {useState, useRef} from 'react'
 import { ScrollView, StyleSheet, Text, TextInput, View, TouchableOpacity, Dimensions, Image, Pressable } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons'
-import { jobs, states } from '../API/api';
+import { jobs, states, languages } from '../API/api';
 import SearchableDropdown from 'react-native-searchable-dropdown';
 import Button from '../components/Button'
 import { useNavigation } from '@react-navigation/native'
+import {useTranslation} from 'react-i18next';
 
 const WINDOW_WIDTH = Dimensions.get("window").width
 const CARD_WIDTH = Math.round(WINDOW_WIDTH)
 
 const WorkerInfo = () => {
+    const {t, i18n} = useTranslation();
     const navigation = useNavigation()
     const [name, setname] = useState('')
-    const [job, setjob] = useState('Select your job here...')
-    const [state, setstate] = useState('Select your area here...')
+    const [job, setjob] = useState('')
+    const [state, setstate] = useState('')
+    const [language, setlanguage] = useState('')
 
     return (
         <View style={{flex: 1}}>
             <View style={{marginVertical: 20, marginHorizontal: 10}}>
-                <Text style={{fontSize: 20, fontWeight: 'bold', color: '#000000', marginBottom: 5}}>What is your name?</Text>
+                <Text style={{fontSize: 20, fontWeight: 'bold', color: '#000000', marginBottom: 5}}>{t('whatisname')}</Text>
                 <View style={{...styles.container, backgroundColor: '#ffffff'}}>
                     {/* <Icon name="person" style={{...styles.icon, color: 'grey'}}/> */}
-                    <TextInput value={name} onChangeText={setname} placeholder={"Enter name here..."} placeholderTextColor={'grey'} style={{...styles.input, color: '#000000'}} />
+                    <TextInput value={name} onChangeText={setname} placeholder={name} placeholderTextColor={'grey'} style={{...styles.input, color: '#000000'}} />
                 </View>
             </View>
 
             <View style={{marginVertical: 20, marginHorizontal: 10}}>
-                <Text style={{fontSize: 20, fontWeight: 'bold', color: '#000000', marginBottom: 5}}>What do you do?</Text>
+                <Text style={{fontSize: 20, fontWeight: 'bold', color: '#000000', marginBottom: 5}}>{t('Whatyoudo')}</Text>
                     <SearchableDropdown
                         value={job}
                         onItemSelect={(item) => setjob(item.name)}
@@ -68,7 +71,49 @@ const WorkerInfo = () => {
         </View>
 
         <View style={{marginVertical: 20, marginHorizontal: 10}}>
-                <Text style={{fontSize: 20, fontWeight: 'bold', color: '#000000', marginBottom: 5}}>Where do you live?</Text>
+                <Text style={{fontSize: 20, fontWeight: 'bold', color: '#000000', marginBottom: 5}}>{t('selectlang')}</Text>
+                    <SearchableDropdown
+                        value={languages}
+                        onItemSelect={(item) => i18n.changeLanguage(item.code)}
+                        containerStyle={{ padding: 5, backgroundColor: '#ffffff',borderRadius: 10,elevation: 20,shadowColor: '#000000',shadowOffset: {width: -2, height: 2},shadowOpacity: 0.25,shadowRadius: 3, }}
+                        onRemoveItem={(item, index) => {
+                    
+                        }}
+                        itemStyle={{
+                            padding: 10,
+                            marginTop: 2,
+                            backgroundColor: '#eeeeee',
+                            borderColor: '#bbb',
+                            borderWidth: 1,
+                            borderRadius: 5,
+                        }}
+                    itemTextStyle={{ color: '#000000' }}
+                    itemsContainerStyle={{ maxHeight: 200 }}
+                    items={languages}
+                    // defaultIndex={0}
+                    resetValue={false}
+                    textInputProps={
+                        {
+                            placeholder: '',
+                            placeholderTextColor: 'grey',
+                            // underlineColorAndroid: "transparent",
+                            style: {
+                                color: '#000000',
+                                fontSize: 16
+                            },
+                            // onTextChange: text => alert(text)
+                        }
+                    }
+                    listProps={
+                        {
+                            nestedScrollEnabled: true,
+                        }
+                    }
+                />
+        </View>
+
+        <View style={{marginVertical: 20, marginHorizontal: 10}}>
+                <Text style={{fontSize: 20, fontWeight: 'bold', color: '#000000', marginBottom: 5}}>{t('whereyoulive')}</Text>
                     <SearchableDropdown
                         value={state}
                         onItemSelect={(item) => setstate(item.name)}
@@ -110,7 +155,7 @@ const WorkerInfo = () => {
             </View>
 
             <Pressable style={styles.btncontainer} onPress={()=>navigation.navigate("Earning")}>
-                <Text style={styles.btntext}>Continue</Text>
+                <Text style={styles.btntext}>{t('continue')}</Text>
             </Pressable>
         </View>
     )

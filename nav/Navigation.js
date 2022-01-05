@@ -7,8 +7,10 @@ import EarningScreen from '../Screens/EarningScreen'
 import OTPloginScreen from '../Screens/OTPloginScreen';
 import OTPverifyScreen from '../Screens/OTPverifyScreen';
 import AppNav from './AppNav'
+import {useTranslation} from 'react-i18next';
 
 const Navigation = () => {
+    const {t, i18n} = useTranslation();
     const [user, setuser] = useState(false)
     const Stack = createNativeStackNavigator();
     return (
@@ -21,9 +23,9 @@ const Navigation = () => {
                     </>
                     ) : (
                     <>
-                        <Stack.Screen name="OTPlogin" component={OTPloginScreen} options={{ title: 'OTP Login' }}/>
-                        <Stack.Screen name="OTPverify" component={OTPverifyScreen} options={{ title: 'Verify OTP' }}/>
-                        <Stack.Screen name="WorkerInfo" component={WorkerInfo} options={{ title: 'Tell us about yourself' }}/>
+                        <Stack.Screen name="OTPlogin" component={OTPloginScreen} options={{ title: t('otplogin') }}/>
+                        <Stack.Screen name="OTPverify" component={OTPverifyScreen} options={{ title: t('verifyotp') }}/>
+                        <Stack.Screen name="WorkerInfo" component={WorkerInfo} options={{ title: t('tellusaboutyou') }}/>
                         <Stack.Screen name="Earning" component={EarningScreen} options={{ headerShown: false }}/>
                         <Stack.Screen name="AppNav" component={AppNav} options={{ headerShown: false }}/>
                     </>

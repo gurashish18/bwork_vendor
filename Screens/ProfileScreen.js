@@ -3,18 +3,20 @@ import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image, Pressable } 
 import { profiledata } from '../API/api'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import Button from '../components/Button'
+import {useTranslation} from 'react-i18next';
 
 const ProfileScreen = () => {
+    const {t, i18n} = useTranslation();
     return (
         <FlatList
                 style={{backgroundColor: '#ffffff'}}
                 ListHeaderComponent={
                     <>
-                        <Text style={{fontSize: 30, color: '#000000', fontWeight:'bold', alignSelf: 'center'}}>Profile Progress</Text>
+                        <Text style={{fontSize: 30, color: '#000000', fontWeight:'bold', alignSelf: 'center'}}>{t('profileprogress')}</Text>
                         <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: 10, marginVertical: 20}}>
                             <View>
-                                <Text style={{fontSize: 20, color: 'grey'}}>Complete the below steps</Text>
-                                <Text style={{fontSize: 20, color: 'grey'}}>to become a WC partner</Text>
+                                <Text style={{fontSize: 20, color: 'grey'}}>{t('completesteps')}</Text>
+                                <Text style={{fontSize: 20, color: 'grey'}}>{t('tobecomeMember')}</Text>
                             </View>
                             <View>
                                 <Icon name="camera-enhance" size={50} style={{color: '#ffc107'}}/>
@@ -40,7 +42,7 @@ const ProfileScreen = () => {
                 ListFooterComponent={
                     <>
                             <Pressable style={styles.btncontainer}>
-                                <Text style={styles.btntext}>Submit</Text>
+                                <Text style={styles.btntext}>{t('submit')}</Text>
                             </Pressable>
                     </>
                 }    

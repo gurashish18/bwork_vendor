@@ -4,8 +4,10 @@ import OTPInputView from '@twotalltotems/react-native-otp-input'
 import {useNavigation} from '@react-navigation/native'
 import Button from '../components/Button'
 import Spinner from 'react-native-loading-spinner-overlay';
+import {useTranslation} from 'react-i18next';
 
 const OTPverifyScreen = ({ route: { params: { phoneNumber } }}) => {
+  const {t, i18n} = useTranslation();
     const navigation = useNavigation()
     const [otp, setotp] = useState('')
     const [confirm, setConfirm] = useState(null);
@@ -48,7 +50,7 @@ const OTPverifyScreen = ({ route: { params: { phoneNumber } }}) => {
               textContent={'Loading...'}
               textStyle={{color: '#000000'}}
             />
-            <Text style={{fontSize: 20, color: '#000000'}}>Enter code here</Text>
+            <Text style={{fontSize: 20, color: '#000000'}}>{t('EnterCode')}</Text>
             <OTPInputView
                 style={{width: '80%', height: 200, color: '#000000'}}
                 pinCount={6}
@@ -59,7 +61,7 @@ const OTPverifyScreen = ({ route: { params: { phoneNumber } }}) => {
                 codeInputHighlightStyle={{borderColor: '#3284FF'}}
                 onCodeFilled = {code => {} }
             />
-            <Button onPress={() => navigation.navigate("WorkerInfo")} buttontext="Verify"/>
+            <Button onPress={() => navigation.navigate("WorkerInfo")} buttontext={t('verify')}/>
         </View>
     )
 }

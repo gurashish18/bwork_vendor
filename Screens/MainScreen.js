@@ -2,14 +2,16 @@ import React from 'react'
 import { StyleSheet, Text, View, FlatList, Pressable, Image, TouchableOpacity } from 'react-native'
 import { nearbyjobs } from '../API/api'
 import Icon from 'react-native-vector-icons/MaterialIcons'
+import {useTranslation} from 'react-i18next';
 
 const MainScreen = () => {
+    const {t, i18n} = useTranslation();
     return (
         <FlatList
                 style={{backgroundColor: '#ffffff'}}
                 ListHeaderComponent={
                     <>
-                        <Text style={{fontSize: 25, color: '#000000', fontWeight:'bold', alignSelf: 'center', marginVertical: 20}}>{nearbyjobs.length} new jobs near you</Text>
+                        <Text style={{fontSize: 25, color: '#000000', fontWeight:'bold', alignSelf: 'center', marginVertical: 20}}>{nearbyjobs.length} {t('newjobs')}</Text>
                     </>
                 }
                 horizontal={false} 
@@ -34,7 +36,7 @@ const MainScreen = () => {
                         </View>
                         <View>
                             {/* Booking amount */}
-                            <Text style={{color: '#000000', fontSize: 16, fontWeight: 'bold'}}>Booking Amount: ₹{item.amount}</Text>
+                            <Text style={{color: '#000000', fontSize: 16, fontWeight: 'bold'}}>{t('bookingamt')}: ₹{item.amount}</Text>
                         </View>
                     </TouchableOpacity>
                 )}

@@ -3,8 +3,10 @@ import {SafeAreaView,StyleSheet,View,Text,Image,Button,} from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { useNavigation } from '@react-navigation/native';
+import {useTranslation} from 'react-i18next';
 
 const OnboardScreen = () => {
+    const {t, i18n} = useTranslation();
     const navigation = useNavigation()
     const onDone = () => {
       navigation.navigate("OTPlogin")
@@ -45,7 +47,7 @@ const OnboardScreen = () => {
       const RenderDoneButton = () => {
         return (
               <View style={{flexDirection: 'row', alignItems: 'center', paddingVertical:5, paddingHorizontal: 10, borderRadius: 10, backgroundColor: '#ffc107'}}>
-                <Text style={{color: '#000000', fontSize: 18}}>Done</Text>
+                <Text style={{color: '#000000', fontSize: 18}}>{t('Done')}</Text>
                 <Icon name="done" style={{color: '#000000', fontSize: 18}}/>
               </View>
         );

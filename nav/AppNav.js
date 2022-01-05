@@ -6,10 +6,12 @@ import MainScreen from '../Screens/MainScreen'
 import ProfileScreen from '../Screens/ProfileScreen'
 import JobsAroundScreen from '../Screens/JobsAroundScreen'
 import Icon from 'react-native-vector-icons/MaterialIcons'
+import {useTranslation} from 'react-i18next';
 
 
 const AppNav = () => {
     const Tab = createBottomTabNavigator();
+    const {t, i18n} = useTranslation();
     return (
         <Tab.Navigator
             initialRouteName="Main Screen"
@@ -23,7 +25,7 @@ const AppNav = () => {
                     name="Main Screen"
                     component={MainScreen}
                     options={{
-                        tabBarLabel: 'New',
+                        tabBarLabel: t('new'),
                         tabBarIcon: ({ color, size }) => (
                         <Icon name="fiber-new" size={30} style={{color: '#000000'}}/>
                         ),
@@ -32,7 +34,7 @@ const AppNav = () => {
                     name="Profile Screen"
                     component={ProfileScreen}
                     options={{
-                        tabBarLabel: 'Profile',
+                        tabBarLabel: t('profile'),
                         tabBarIcon: ({ color, size }) => (
                             <Icon name="person-pin" size={30} style={{color: '#000000'}}/>
                         ),
@@ -41,7 +43,7 @@ const AppNav = () => {
                     name="Jobs Screen"
                     component={JobsAroundScreen}
                     options={{
-                        tabBarLabel: 'WC Around You',
+                        tabBarLabel: t('aroundyou'),
                         tabBarIcon: ({ color, size }) => (
                             <Image source={require('../assets/logo.png')} style={{height: 40, width: 40, resizeMode: 'contain'}}/>
                         ),
