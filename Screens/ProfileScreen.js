@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image, Pressable } from 'react-native'
-import { profiledata } from '../API/api'
+import { profiledata, profiledataHindi } from '../API/api'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import Button from '../components/Button'
 import {useTranslation} from 'react-i18next';
@@ -25,7 +25,7 @@ const ProfileScreen = () => {
                     </>
                 }
                 horizontal={false} 
-                data={profiledata}
+                data={i18n.language =='en' ? profiledata : profiledataHindi}
                 numColumns={1}  
                 renderItem={({item, index}) => (
                     <TouchableOpacity key={item.id} style={{backgroundColor: '#ffffff', flexDirection: 'row', alignItems: 'center',justifyContent: 'space-between',  padding: 10, margin: 10, elevation: 10,shadowColor: '#000000',shadowOffset: {width: -2, height: 2},shadowOpacity: 0.25,shadowRadius: 3,borderRadius: 10}}>

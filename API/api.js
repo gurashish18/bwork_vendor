@@ -254,6 +254,51 @@ export const profiledata = [
   },
 ]
 
+export const profiledataHindi = [
+  {
+    id: '1',
+    title: 'प्रशिक्षण केंद्र',
+    text: 'WC के साथ कैसे शुरू करें, इसके बारे में वीडियो',
+    icon: 'handyman'
+  },
+  {
+    id: '2',
+    title: 'मददगार जोड़ें',
+    text: '',
+    icon: 'note-add'
+  },
+  {
+    id: '4',
+    title: 'व्यक्तिगत विवरण',
+    text: 'नाम, ईमेल, फोन नंबर आदि।',
+    icon: 'person-add'
+  },
+  {
+    id: '5',
+    title: 'ऑनबोर्डिंग दस्तावेज़',
+    text: 'पैन, पता प्रमाण, ऋण के लिए दस्तावेज',
+    icon: 'plagiarism'
+  },
+  {
+    id: '6',
+    title: 'टीकाकरण की स्थिति सत्यापित करें',
+    text: 'आपकी और ग्राहक की सुरक्षा के लिए महत्वपूर्ण',
+    icon: 'verified'
+  },
+  {
+    id: '7',
+    title: 'पुरस्कार और प्रमाण पत्र तस्वीरें',
+    text: 'अपने पुरस्कार और प्रमाणपत्र यहां जोड़ें',
+    icon: 'stars'
+  },
+  {
+    id: '8',
+    title: 'बैंक विवरण',
+    text: 'भुगतान इस खाते में जमा किया जाएगा',
+    icon: 'attach-money'
+  },
+]
+
 export const nearbyjobs = [
   {
     id: '1',
