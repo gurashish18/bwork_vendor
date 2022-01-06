@@ -9,10 +9,10 @@ const OnboardScreen = () => {
     const {t, i18n} = useTranslation();
     const navigation = useNavigation()
     const onDone = () => {
-      navigation.navigate("OTPlogin")
+      navigation.navigate("Language")
     };
     const onSkip = () => {
-      navigation.navigate("OTPlogin")
+      navigation.navigate("Language")
     };
     const RenderItem = ({item}) => {
         return (
@@ -46,9 +46,9 @@ const OnboardScreen = () => {
     
       const RenderDoneButton = () => {
         return (
-              <View style={{flexDirection: 'row', alignItems: 'center', paddingVertical:5, paddingHorizontal: 10, borderRadius: 10, backgroundColor: '#ffc107'}}>
-                <Text style={{color: '#000000', fontSize: 18}}>{t('Done')}</Text>
-                <Icon name="done" style={{color: '#000000', fontSize: 18}}/>
+              <View style={{flexDirection: 'row', alignItems: 'center', paddingVertical:10, paddingHorizontal: 20, borderRadius: 10, backgroundColor: '#ffc107'}}>
+                {/* <Text style={{color: '#000000', fontSize: 18}}>{t('Done')}</Text> */}
+                <Icon name="done" style={{color: '#000000', fontSize: 30}}/>
               </View>
         );
       };

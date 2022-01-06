@@ -6,6 +6,7 @@ import WorkerInfo from '../Screens/WorkerInfo'
 import EarningScreen from '../Screens/EarningScreen'
 import OTPloginScreen from '../Screens/OTPloginScreen';
 import OTPverifyScreen from '../Screens/OTPverifyScreen';
+import LanguageScreen from '../Screens/LanguageScreen'
 import AppNav from './AppNav'
 import {useTranslation} from 'react-i18next';
 
@@ -23,6 +24,7 @@ const Navigation = () => {
                     </>
                     ) : (
                     <>
+                        <Stack.Screen name="Language" component={LanguageScreen} options={{ headerShown: false }}/>
                         <Stack.Screen name="OTPlogin" component={OTPloginScreen} options={{ title: t('otplogin') }}/>
                         <Stack.Screen name="OTPverify" component={OTPverifyScreen} options={{ title: t('verifyotp') }}/>
                         <Stack.Screen name="WorkerInfo" component={WorkerInfo} options={{ title: t('tellusaboutyou') }}/>
